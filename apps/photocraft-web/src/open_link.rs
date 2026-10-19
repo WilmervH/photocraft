@@ -33,9 +33,22 @@ pub fn open_target(query: &[(String, String)]) -> Option<Result<String, String>>
     let url = url.trim();
     let host = url.split_once("://").and_then(|(scheme, rest)| matches!(scheme.to_ascii_lowercase().as_str(), "http" | "https").then_some(rest));
     Some(match host {
-        Some(rest) if !rest.is_empty() && !rest.starts_with('/') => Ok(url.to_string()),
+        Some(rest) if has_host(rest) => Ok(url.to_string()),
         _ => Err(url.to_string()),
     })
+}
+
+/// Whether the authority at the start of `after_scheme` (`user@host:port`, up to the first `/`,
+/// `?` or `#`) names a host: `https://?x`, `https://:80/a.png` and `https://user@/a.png` don't.
+fn has_host(after_scheme: &str) -> bool {
+    let authority = after_scheme.split(['/', '?', '#']).next().unwrap_or("");
+    let host_port = authority.rsplit_once('@').map_or(authority, |(_, host_port)| host_port);
+    let host = match host_port.strip_prefix('[') {
+        // An IPv6 literal: `[::1]:8080`.
+        Some(v6) => v6.split_once(']').map_or("", |(host, _)| host),
+        None => host_port.split_once(':').map_or(host_port, |(host, _)| host),
+    };
+    !host.is_empty()
 }
 
 /// The document's name for an image fetched from `url`: the last segment of its path. When that
@@ -110,8 +123,35 @@ mod tests {
         // An unencoded inner query is cut at its `&`; encoded it arrives whole.
         assert_eq!(target("?open=https%3A%2F%2Fp.example%2Fimg%3Fu%3Dx%26w%3D2"), Some(Ok("https://p.example/img?u=x&w=2".into())));
         assert_eq!(target("?open=javascript:alert(1)"), Some(Err("javascript:alert(1)".into())));
-        for bad in ["?open=", "?open=javascript:alert(1)", "?open=data:image/png;base64,AAAA", "?open=/local.png", "?open=ftp://example.com/a.png", "?open=https://", "?open=https:///a.png"] {
+        for bad in [
+            "?open=",
+            "?open=javascript:alert(1)",
+            "?open=data:image/png;base64,AAAA",
+            "?open=/local.png",
+            "?open=ftp://example.com/a.png",
+            "?open=https://",
+            "?open=https:///a.png",
+        ] {
             assert!(matches!(target(bad), Some(Err(_))), "{bad}");
+        }
+    }
+
+    #[test]
+    fn open_target_needs_a_host() {
+        let target = |url: &str| open_target(&[("open".to_string(), url.to_string())]);
+        for good in [
+            "https://example.com",
+            "https://user:pw@example.com/a.png",
+            "http://example.com:8080/a.png?x#y",
+            "http://[::1]:8765/a.png",
+            "https://[2001:db8::1]/a.png",
+        ] {
+            assert_eq!(target(good), Some(Ok(good.to_string())), "{good}");
+        }
+        for bad in
+            ["https://?x", "https://#a", "https://:80/a.png", "https://user@/a.png", "https://user:pw@:80/a.png", "https://[]/a.png", "https://[::1/a.png"]
+        {
+            assert_eq!(target(bad), Some(Err(bad.to_string())), "{bad}");
         }
     }
 
