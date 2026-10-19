@@ -3964,6 +3964,7 @@ curves	Smooth	Vloeiend maken
 	There are too many sets: delete one first.	Er zijn te veel sets: verwijder er eerst een.
 	set name	naam van de set
 	{set} (modified)	{set} (gewijzigd)
+	Show file name in title	Bestandsnaam in titel weergeven
 	Accept and Go to Conflict	Accepteren en naar conflict
 	Changes undone.	Wijzigingen ongedaan gemaakt.
 	Choose a new shortcut for this command, or leave it without one.	Kies een nieuwe sneltoets voor deze opdracht of laat hem zonder.
@@ -3990,6 +3991,9 @@ curves	Smooth	Vloeiend maken
 	Increase Brush Size	Penseelgrootte vergroten
 	Decrease Brush Hardness	Penseelhardheid verlagen
 	Increase Brush Hardness	Penseelhardheid verhogen
+	Use	Gebruiken
+	In Front	Voor
+	Behind	Achter
 # Opening an image from a link (?open=)
 	The server may not allow other sites to read it (CORS).	De server staat andere sites mogelijk niet toe het bestand te lezen (CORS).
 	Only http and https links can be opened.	Alleen http- en https-links kunnen worden geopend.

@@ -3880,6 +3880,7 @@ curves	Smooth	スムーズ
 	There are too many sets: delete one first.	セットが多すぎます。先に 1 つ削除してください。
 	set name	セット名
 	{set} (modified)	{set}（変更あり）
+	Show file name in title	タイトルにファイル名を表示
 	Accept and Go to Conflict	適用して競合へ移動
 	Changes undone.	変更を取り消しました。
 	Choose a new shortcut for this command, or leave it without one.	このコマンドに新しいショートカットを選択するか、なしのままにしてください。
@@ -3907,6 +3908,9 @@ curves	Smooth	スムーズ
 	Increase Brush Size	ブラシサイズを大きく
 	Decrease Brush Hardness	ブラシの硬さを下げる
 	Increase Brush Hardness	ブラシの硬さを上げる
+	Use	使用
+	In Front	前面
+	Behind	背面
 # Opening an image from a link (?open=)
 	The server may not allow other sites to read it (CORS).	サーバーが他のサイトからのファイルの読み取りを許可していない可能性があります（CORS）。
 	Only http and https links can be opened.	開けるのは http と https のリンクだけです。
