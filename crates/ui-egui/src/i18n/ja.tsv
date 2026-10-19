@@ -3907,3 +3907,6 @@ curves	Smooth	スムーズ
 	Increase Brush Size	ブラシサイズを大きく
 	Decrease Brush Hardness	ブラシの硬さを下げる
 	Increase Brush Hardness	ブラシの硬さを上げる
+# Opening an image from a link (?open=)
+	The server may not allow other sites to read it (CORS).	サーバーが他のサイトからのファイルの読み取りを許可していない可能性があります（CORS）。
+	Only http and https links can be opened.	開けるのは http と https のリンクだけです。

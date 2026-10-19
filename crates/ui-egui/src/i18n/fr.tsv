@@ -3238,3 +3238,6 @@ curves	Smooth	Lisser
 	Increase Brush Size	Augmenter la taille du pinceau
 	Decrease Brush Hardness	Réduire la dureté du pinceau
 	Increase Brush Hardness	Augmenter la dureté du pinceau
+# Opening an image from a link (?open=)
+	The server may not allow other sites to read it (CORS).	Le serveur n'autorise peut-être pas d'autres sites à lire le fichier (CORS).
+	Only http and https links can be opened.	Seuls les liens http et https peuvent être ouverts.

@@ -2853,3 +2853,6 @@ curves	Smooth	平滑
 	Increase Brush Size	增大画笔大小
 	Decrease Brush Hardness	减小画笔硬度
 	Increase Brush Hardness	增大画笔硬度
+# Opening an image from a link (?open=)
+	The server may not allow other sites to read it (CORS).	服务器可能不允许其他网站读取该文件（CORS）。
+	Only http and https links can be opened.	只能打开 http 和 https 链接。

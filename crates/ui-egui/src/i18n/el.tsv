@@ -3930,3 +3930,6 @@ curves	Smooth	Εξομάλυνση
 	Increase Brush Size	Αύξηση μεγέθους πινέλου
 	Decrease Brush Hardness	Μείωση σκληρότητας πινέλου
 	Increase Brush Hardness	Αύξηση σκληρότητας πινέλου
+# Opening an image from a link (?open=)
+	The server may not allow other sites to read it (CORS).	Ο διακομιστής ίσως δεν επιτρέπει σε άλλους ιστότοπους να διαβάσουν το αρχείο (CORS).
+	Only http and https links can be opened.	Μπορούν να ανοιχτούν μόνο σύνδεσμοι http και https.

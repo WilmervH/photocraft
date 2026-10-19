@@ -3838,3 +3838,6 @@ navigator	Zoom	Zvětšení
 	Increase Brush Size	Zvětšit velikost štětce
 	Decrease Brush Hardness	Snížit tvrdost štětce
 	Increase Brush Hardness	Zvýšit tvrdost štětce
+# Opening an image from a link (?open=)
+	The server may not allow other sites to read it (CORS).	Server možná nepovoluje jiným webům soubor číst (CORS).
+	Only http and https links can be opened.	Otevřít lze jen odkazy http a https.

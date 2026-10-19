@@ -4192,3 +4192,6 @@ navigator	Zoom	Zoom
 	Increase Brush Size	Aumentar tamaño del pincel
 	Decrease Brush Hardness	Reducir dureza del pincel
 	Increase Brush Hardness	Aumentar dureza del pincel
+# Opening an image from a link (?open=)
+	The server may not allow other sites to read it (CORS).	Es posible que el servidor no permita que otros sitios lean el archivo (CORS).
+	Only http and https links can be opened.	Solo se pueden abrir enlaces http y https.
